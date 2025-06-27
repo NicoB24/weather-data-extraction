@@ -1,0 +1,29 @@
+# Python virtual environments
+venv/
+.venv/
+.env/
+
+# VSCode and PyCharm settings
+.vscode/
+.idea/
+
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Test and coverage files
+*.log
+coverage/
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.tox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# System files
+.DS_Store
+Thumbs.db
