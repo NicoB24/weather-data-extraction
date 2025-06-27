@@ -87,7 +87,7 @@ http://127.0.0.1:8000/plot
 ## 💡 Notes & Possible Improvements
 - Fixed city list: Both main script and API use a hardcoded list of cities. Could be improved by fetching cities dynamically from an external API or database.
 - CSV download: Currently only the latest generated CSV is downloadable. Adding support for downloading by date would be valuable.
-- Fetching logic: fetch_weather.py is synchronous and simple to avoid rate limiting. Async requests or caching could boost performance.
+- Fetching logic: fetch_weather.py is synchronous and simple. Async requests or caching could boost performance.
 - Testing: Add more API endpoint tests to cover edge cases and error handling.
 - Error handling & logging: Could be enhanced for production readiness.
 - Add CI/CD
