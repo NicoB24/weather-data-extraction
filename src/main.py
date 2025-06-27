@@ -1,25 +1,31 @@
+import logging
+
 from src.cities import cities
-from src.fetch_weather import fetch_weather
-from src.processor import export_to_csv, process_weather_data
+from src.fetch_weather import WeatherClient
+from src.processor import export_to_csv, process_weather_data, visualize_temperatures
+
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
+)
 
 
 def main() -> None:
+    client = WeatherClient()
     all_data = []
 
     for city in cities:
-        try:
-            weather = fetch_weather(city)
-            all_data.append(weather)
-        except Exception as e:
-            print(f"Error fetching data for {city['City']}: {e}")
+        weather = client.fetch_weather(city)
+        all_data.append(weather)
 
     if not all_data:
-        print("No data fetched.")
+        logging.warning("No data fetched.")
         return
 
     df = process_weather_data(all_data)
     export_to_csv(df)
-    print("Weather data exported to 'data folder'")
+    logging.info("Weather data exported to 'data' folder.")
+    visualize_temperatures(df)
+    logging.info("Temeprature graphic exported to 'data' folder.")
 
 
 if __name__ == "__main__":
