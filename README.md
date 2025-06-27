@@ -61,6 +61,7 @@ mypy src/
 ```
 
 ### Run API Server Locally
+Inside the src folder
 ```
 uvicorn api:app --reload
 ```
