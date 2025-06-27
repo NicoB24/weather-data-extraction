@@ -60,13 +60,6 @@ flake8 src/
 mypy src/
 ```
 
-### Run API Server Locally
-Inside the src folder
-```
-uvicorn api:app --reload
-```
-Access the API at: http://127.0.0.1:8000
-
 ### 🐳 Run API Server with Docker
 Build image
 ```
