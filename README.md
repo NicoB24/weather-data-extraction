@@ -83,7 +83,7 @@ Get latest temperature plot:
 ```
 http://127.0.0.1:8000/plot
 ```
-
+---
 ## 💡 Notes & Possible Improvements
 - Fixed city list: Both main script and API use a hardcoded list of cities. Could be improved by fetching cities dynamically from an external API or database.
 - CSV download: Currently only the latest generated CSV is downloadable. Adding support for downloading by date would be valuable.
