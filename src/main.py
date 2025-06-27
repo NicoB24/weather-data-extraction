@@ -1,12 +1,13 @@
 import logging
+
 from src.cities import cities
 from src.fetch_weather import WeatherClient
 from src.processor import export_to_csv, process_weather_data, visualize_temperatures
 
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s"
+    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
 )
+
 
 def main() -> None:
     client = WeatherClient()
@@ -25,6 +26,7 @@ def main() -> None:
     logging.info("Weather data exported to 'data' folder.")
     visualize_temperatures(df)
     logging.info("Temeprature graphic exported to 'data' folder.")
+
 
 if __name__ == "__main__":
     main()

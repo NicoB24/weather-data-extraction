@@ -11,18 +11,18 @@
 
 import logging
 from typing import Any, Dict
+
 import requests
+from dateutil import parser
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from dateutil import parser
+
 from src.config import BASE_URL
 
-
-
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s"
+    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
 )
+
 
 class WeatherClient:
     def __init__(self):
@@ -31,7 +31,7 @@ class WeatherClient:
             total=3,
             backoff_factor=0.5,
             status_forcelist=[500, 502, 503, 504],
-            allowed_methods=["GET"]
+            allowed_methods=["GET"],
         )
         adapter = HTTPAdapter(max_retries=retries)
         self.session.mount("https://", adapter)
@@ -69,8 +69,7 @@ class WeatherClient:
             current_dt = parser.isoparse(current_time)
             times_dt = [parser.isoparse(t) for t in times]
             closest_idx = min(
-                range(len(times_dt)),
-                key=lambda i: abs(times_dt[i] - current_dt)
+                range(len(times_dt)), key=lambda i: abs(times_dt[i] - current_dt)
             )
             humidity = humidity_hourly[closest_idx]
 
